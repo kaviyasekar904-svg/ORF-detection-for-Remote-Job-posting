@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fraud Detector</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">🔐 Fraud Detector</div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Result</a></li>
+            
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="content">
+            <h1>Detect <span>Fake</span><br>Job Postings</h1>
+            <p>Enter a job posting URL to check if it's legitimate or fraudulent.</p>
+
+            <form action="/predict" method="post" class="form-box">
+                <input type="text" name="url" placeholder="Enter job posting URL..." required>
+                <button type="submit">Check Now</button>
+            </form>
+{% if prediction %}
+    <h2 style="margin-top:20px;">Result: {{ prediction }}</h2>
+{% endif %}
+        </div>
+    </section>
+
+</body>
+</html>
